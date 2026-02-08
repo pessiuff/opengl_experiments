@@ -1,0 +1,11 @@
+**
+
+!.gitignore
+
+!shared/
+!shared/**
+
+!triangle/
+!triangle/**
+
+!CMakeLists.txt
