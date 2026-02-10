@@ -73,7 +73,7 @@ constexpr unsigned int k_cubeIndices[] = {
     22, 23, 21
 };
 
-CubeApp::CubeApp() : App({512, 512, "Texture", true}) {
+CubeApp::CubeApp() : App({512, 512, "Cube", true}) {
 
 }
 
