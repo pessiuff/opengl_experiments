@@ -21,12 +21,12 @@ bool TriangleApp::init() {
         glViewport(0, 0, framebufferWidth, framebufferHeight);
     });
 
-    if (!m_triangleShader.initFromSource(k_positionColorVertexShader, k_solidColorFragmentShader)) {
+    if (!m_shader.initFromSource(k_positionColorVertexShader, k_solidColorFragmentShader)) {
         std::cout << "Couldn't initialize the shader program!\n";
         return false;
     }
 
-    m_triangleShader.use();
+    m_shader.use();
     
     glGenVertexArrays(1, &m_vaoHandle);
     if (m_vaoHandle == 0) {
@@ -65,5 +65,7 @@ void TriangleApp::draw() {
 }
 
 void TriangleApp::deinit() {
-    m_triangleShader.destroy();
+    glDeleteBuffers(1, &m_vboHandle);
+    glDeleteVertexArrays(1, &m_vaoHandle);
+    m_shader.destroy();
 }

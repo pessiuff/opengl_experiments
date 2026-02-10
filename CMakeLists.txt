@@ -4,3 +4,4 @@ project(opengl_experiments)
 
 add_subdirectory(shared)
 add_subdirectory(triangle)
+add_subdirectory(texture)

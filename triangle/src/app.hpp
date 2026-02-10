@@ -15,7 +15,7 @@ namespace opengl_experiments {
         virtual void deinit();
     
     private:
-        ShaderProgram m_triangleShader;
+        ShaderProgram m_shader;
         GLuint m_vaoHandle = 0;
         GLuint m_vboHandle = 0;
     };

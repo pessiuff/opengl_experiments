@@ -15,6 +15,20 @@ namespace opengl_experiments {
     }
     )";
 
+    constexpr char k_positionTexCoordVertexShader[] = R"(
+    #version 330 core
+
+    layout (location = 0) in vec3 a_Pos;
+    layout (location = 1) in vec2 a_TexCoord;
+
+    out vec2 texCoord;
+
+    void main() {
+        gl_Position = vec4(a_Pos, 1.0f);
+        texCoord = a_TexCoord;
+    }
+    )";
+
     constexpr char k_solidColorFragmentShader[] = R"(
     out vec4 fragmentColor;
 
@@ -22,6 +36,18 @@ namespace opengl_experiments {
 
     void main() {
         fragmentColor = vec4(vertexColor, 1.0f);
+    }
+    )";
+
+    constexpr char k_textureFragmentShader[] = R"(
+    out vec4 fragmentColor;
+
+    in vec2 texCoord;
+
+    uniform sampler2D tex;
+
+    void main() {
+        fragmentColor = texture(tex, texCoord);
     }
     )";
 }
