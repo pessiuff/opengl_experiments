@@ -56,11 +56,13 @@ bool TriangleApp::init() {
     return true;
 }
 
-void TriangleApp::update() {
+void TriangleApp::update(double deltaTime) {
     
 }
 
 void TriangleApp::draw() {
+    m_shader.use();
+    glBindVertexArray(m_vaoHandle);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 

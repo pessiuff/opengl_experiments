@@ -11,4 +11,7 @@
 !texture/
 !texture/**
 
+!cube/
+!cube/**
+
 !CMakeLists.txt

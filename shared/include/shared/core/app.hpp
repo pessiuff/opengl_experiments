@@ -19,7 +19,7 @@ namespace opengl_experiments {
         void run();
 
         virtual bool init() = 0;
-        virtual void update() = 0;
+        virtual void update(double deltaTime) = 0;
         virtual void draw() = 0;
         virtual void deinit() = 0;
 

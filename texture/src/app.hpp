@@ -10,7 +10,7 @@ namespace opengl_experiments {
         TextureApp();
 
         virtual bool init();
-        virtual void update();
+        virtual void update(double deltaTime);
         virtual void draw();
         virtual void deinit();
 

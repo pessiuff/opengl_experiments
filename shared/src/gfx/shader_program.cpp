@@ -1,6 +1,7 @@
 #include "gfx/shader_program.hpp"
 
 #include <glad/gl.h>
+#include <glm/gtc/type_ptr.hpp>
 
 using namespace opengl_experiments;
 
@@ -85,4 +86,12 @@ void ShaderProgram::destroy() {
     
     glDeleteProgram(m_handle);
     m_handle = 0;
+}
+
+void ShaderProgram::setUniformMat4(const char* uniformName, const glm::mat4& value) {
+    if (m_handle == 0) {
+        return;
+    }
+
+    glUniformMatrix4fv(glGetUniformLocation(m_handle, uniformName), 1, GL_FALSE, glm::value_ptr(value));
 }

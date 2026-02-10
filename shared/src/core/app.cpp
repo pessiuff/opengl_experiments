@@ -25,14 +25,19 @@ void App::run() {
     glfwMakeContextCurrent(m_pWindow);
     gladLoadGL(static_cast<GLADloadfunc>(glfwGetProcAddress));
 
+    glEnable(GL_DEPTH_TEST);
+
     if (!init()) {
         return;
     }
 
     while (!glfwWindowShouldClose(m_pWindow)) {
+        double startTime = glfwGetTime();
+        static double deltaTime = 0.0f;
+
         glfwPollEvents();
 
-        update();
+        update(deltaTime);
 
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -40,6 +45,8 @@ void App::run() {
         draw();
 
         glfwSwapBuffers(m_pWindow);
+
+        deltaTime = glfwGetTime() - startTime;
     }
 
     deinit();

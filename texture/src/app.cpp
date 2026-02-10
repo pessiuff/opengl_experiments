@@ -79,11 +79,14 @@ bool TextureApp::init() {
     return true;
 }
 
-void TextureApp::update() {
+void TextureApp::update(double deltaTime) {
     
 }
 
 void TextureApp::draw() {
+    m_shader.use();
+    m_texture.bind();
+    glBindVertexArray(m_vaoHandle);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
