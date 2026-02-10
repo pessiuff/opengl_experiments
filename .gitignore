@@ -8,4 +8,7 @@
 !triangle/
 !triangle/**
 
+!texture/
+!texture/**
+
 !CMakeLists.txt
