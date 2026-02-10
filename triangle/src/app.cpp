@@ -12,11 +12,15 @@ constexpr float k_triangleVertices[] = {
     0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
 };
 
-TriangleApp::TriangleApp() : App({512, 512, "Triangle", false}) {
+TriangleApp::TriangleApp() : App({512, 512, "Triangle", true}) {
 
 }
 
 bool TriangleApp::init() {
+    glfwSetFramebufferSizeCallback(m_pWindow, [](GLFWwindow*, int framebufferWidth, int framebufferHeight) {
+        glViewport(0, 0, framebufferWidth, framebufferHeight);
+    });
+
     if (!m_triangleShader.initFromSource(k_positionColorVertexShader, k_solidColorFragmentShader)) {
         std::cout << "Couldn't initialize the shader program!\n";
         return false;

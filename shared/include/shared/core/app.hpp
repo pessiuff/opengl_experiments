@@ -23,7 +23,7 @@ namespace opengl_experiments {
         virtual void draw() = 0;
         virtual void deinit() = 0;
 
-    private:
+    protected:
         AppParameters m_parameters;
         GLFWwindow* m_pWindow = nullptr;
     };
