@@ -31,9 +31,12 @@ void App::run() {
         return;
     }
 
+    double lastFrameTime = glfwGetTime();
+
     while (!glfwWindowShouldClose(m_pWindow)) {
-        double startTime = glfwGetTime();
-        static double deltaTime = 0.0f;
+        double currentFrameTime = glfwGetTime();
+        double deltaTime = currentFrameTime - lastFrameTime;
+        lastFrameTime = currentFrameTime;
 
         glfwPollEvents();
 
@@ -45,8 +48,6 @@ void App::run() {
         draw();
 
         glfwSwapBuffers(m_pWindow);
-
-        deltaTime = glfwGetTime() - startTime;
     }
 
     deinit();
